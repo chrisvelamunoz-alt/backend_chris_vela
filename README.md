@@ -61,7 +61,7 @@ npm start
 El servidor se ejecutará en:
 
 ```
-http://localhost:3000
+http://localhost:8000
 ```
 
 ---
