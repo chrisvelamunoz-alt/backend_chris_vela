@@ -172,7 +172,7 @@ npm install express
 
 ## 👨‍💻 Autor
 
-Proyecto desarrollado como práctica de backend con Node.js y Express.js.
+Proyecto desarrollado como práctica de backend con Node.js y Express.js. Chris Vela
 
 ---
 
