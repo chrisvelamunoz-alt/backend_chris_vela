@@ -1,120 +1,183 @@
 # backend_chris_vela
-# 🚀 Express.js Backend Fundamentals
+# 📚 API REST de Estudiantes con Express.js
 
 ## 🎯 Propósito de la Aplicación
 
-**Express.js** es el framework backend de **Node.js** más utilizado en la industria del desarrollo de software. Comprender cómo un servidor procesa peticiones HTTP y responde con datos en formato JSON es un paso fundamental para construir APIs REST profesionales.
-
-Este proyecto tiene como objetivo introducir los conceptos clave del funcionamiento de un servidor backend, sentando las bases para futuras implementaciones que incluyan:
-
-* Conexión a bases de datos
-* Sistemas de autenticación
-* Despliegue en la nube
+Express.js es el framework backend de Node.js más usado en la industria. Entender cómo un servidor procesa peticiones HTTP y devuelve respuestas JSON es la base de cualquier API REST profesional que se construya más adelante con bases de datos, autenticación y despliegue en la nube.
 
 ---
 
-## 🧠 Conceptos Clave
+## 📄 Descripción
 
-* **Servidor HTTP**: Maneja solicitudes del cliente (browser, apps, etc.)
-* **Rutas (Routing)**: Define endpoints para diferentes recursos
-* **Middleware**: Funciones que procesan solicitudes antes de llegar a la respuesta final
-* **JSON**: Formato estándar de intercambio de datos en APIs modernas
+Este proyecto consiste en construir un servidor utilizando **Express.js** que gestione una lista de estudiantes almacenada en un array de JavaScript (datos en memoria, sin base de datos).
+
+El servidor debe responder correctamente a peticiones HTTP utilizando los métodos:
+
+* `GET`
+* `POST`
+* `PUT`
+* `DELETE`
+
+Todas las respuestas deben devolverse en formato **JSON** junto con el código de estado HTTP apropiado.
+
+La API está enfocada en la administración de estudiantes e incluye endpoints funcionales para:
+
+* Consultar estudiantes
+* Agregar estudiantes
+* Actualizar estudiantes
+* Eliminar estudiantes
 
 ---
 
-## ⚙️ Tecnologías Utilizadas
+## 🚀 Funcionalidades
 
-* Node.js
-* Express.js
-* JavaScript (ES6+)
+* 📥 Obtener todos los estudiantes
+* 🔍 Obtener estudiante por ID
+* ➕ Agregar un nuevo estudiante
+* ✏️ Actualizar un estudiante existente
+* ❌ Eliminar un estudiante
 
 ---
 
-## 📦 Instalación
+## 🗂️ Estructura del Proyecto
 
-1. Clona el repositorio:
+```
+📦 express-estudiantes-api
+├── 📄 index.js
+├── 📄 package.json
+├── 📄 .gitignore
+└── 📄 README.md
+```
+
+---
+
+## 📌 Componentes del Proyecto
+
+| Componente                  | Descripción                                                                                                                                                        |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **index.js**                | Archivo principal con la configuración de Express, el array de estudiantes y los 5 endpoints (GET all, GET by id, POST, PUT y DELETE) implementados y funcionales. |
+| **package.json**            | Archivo de configuración del proyecto generado con `npm init`. Debe incluir Express como dependencia.                                                              |
+| **.gitignore**              | Archivo que excluye `node_modules/` y otros archivos innecesarios del repositorio.                                                                                 |
+| **README.md**               | Documento que describe el proyecto, cómo ejecutarlo y los endpoints disponibles.                                                                                   |
+| **Repositorio GitHub**      | Repositorio público con todos los archivos del proyecto. La carpeta `node_modules` NO debe estar incluida.                                                         |
+| **Entrega en Aula Virtual** | Enlace del repositorio GitHub entregado en la plataforma Moodle de Kodigo antes de la fecha límite.                                                                |
+
+---
+
+## ⚙️ Instalación y Configuración
+
+### 1️⃣ Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repositorio.git
+git clone https://github.com/tu-usuario/express-estudiantes-api.git
+cd express-estudiantes-api
 ```
 
-2. Navega al proyecto:
+### 2️⃣ Inicializar el proyecto (si aplica)
 
 ```bash
-cd tu-repositorio
+npm init -y
 ```
 
-3. Instala las dependencias:
+### 3️⃣ Instalar dependencias
 
 ```bash
-npm install
+npm install express
+```
+
+### 4️⃣ Ejecutar el servidor
+
+```bash
+node index.js
+```
+
+Servidor disponible en:
+
+```
+http://localhost:3000
 ```
 
 ---
 
-## ▶️ Ejecución del Proyecto
+## 📡 Endpoints de la API
 
-```bash
-npm start
-```
-
-El servidor se ejecutará en:
-
-```
-http://localhost:8000
-```
+| Método | Endpoint        | Descripción                   |
+| ------ | --------------- | ----------------------------- |
+| GET    | `/students`     | Obtener todos los estudiantes |
+| GET    | `/students/:id` | Obtener un estudiante por ID  |
+| POST   | `/students`     | Crear un nuevo estudiante     |
+| PUT    | `/students/:id` | Actualizar un estudiante      |
+| DELETE | `/students/:id` | Eliminar un estudiante        |
 
 ---
 
-## 🌐 Ejemplo de Endpoint
+## 🧪 Ejemplo de Uso
 
-```javascript
-app.get('/api', (req, res) => {
-  res.json({ message: 'Hola mundo desde Express.js' });
-});
-```
+### ➕ Crear un estudiante
 
-### 📌 Respuesta esperada:
+**Request:**
 
 ```json
 {
-  "message": "Hola mundo desde Express.js"
+  "name": "Juan Pérez",
+  "age": 20,
+  "course": "Programación"
+}
+```
+
+**Response:**
+
+```json
+{
+  "id": 1,
+  "name": "Juan Pérez",
+  "age": 20,
+  "course": "Programación"
 }
 ```
 
 ---
 
-## 🧱 Estructura Básica del Proyecto
+## 🧹 Buenas Prácticas Implementadas
 
-```
-📁 project-root
-│
-├── 📄 index.js
-├── 📄 package.json
-├── 📁 routes
-├── 📁 controllers
-└── 📁 middleware
+* Uso correcto de códigos de estado HTTP (`200`, `201`, `404`, etc.)
+* Estructura RESTful
+* Manejo de datos en formato JSON
+* Código limpio y organizado
+* Exclusión de archivos innecesarios con `.gitignore`
+
+---
+
+## 📦 Dependencias
+
+* Express.js
+
+Instalación:
+
+```bash
+npm install express
 ```
 
 ---
 
-## 🚧 Próximos Pasos
+## 📌 Requisitos de Entrega
 
-* 🔐 Implementar autenticación con JWT
-* 🗄️ Integrar base de datos (PostgreSQL / MongoDB)
-* ☁️ Desplegar en servicios cloud (AWS, Vercel, Railway)
-* 📊 Validación de datos y manejo de errores
-
----
-
-## 📌 Conclusión
-
-Dominar Express.js permite entender cómo funcionan las APIs REST desde su núcleo. Este conocimiento es esencial para cualquier desarrollador backend profesional y sirve como base para construir sistemas escalables, seguros y eficientes.
+* ✔️ Servidor funcionando correctamente
+* ✔️ Endpoints implementados (GET, POST, PUT, DELETE)
+* ✔️ Repositorio público en GitHub
+* ✔️ Documentación clara en README.md
+* ❌ No incluir carpeta `node_modules`
 
 ---
 
 ## 👨‍💻 Autor
 
-Desarrollado con fines educativos para fortalecer habilidades en desarrollo backend profesional.
+Proyecto desarrollado como práctica de backend con Node.js y Express.js.
 
 ---
+
+## 📄 Licencia
+
+Este proyecto es de uso educativo.
+
+
